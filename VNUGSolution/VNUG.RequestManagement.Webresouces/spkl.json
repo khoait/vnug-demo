@@ -1,0 +1,21 @@
+{
+  "webresources": [
+    {
+      "profile": "default,debug",
+      "root": "",
+      "solution": "RequestManagement",
+      "files": [
+        {
+          "uniquename": "vnug_/RequestManagement/js/somefile.js",
+          "file": "vnug_\\RequestManagement\\js\\somefile.js",
+          "description": ""
+        },
+        {
+          "uniquename": "vnug_/RequestManagement/js/RequestLibrary.js",
+          "file": "vnug_\\RequestManagement\\js\\RequestLibrary.js",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}

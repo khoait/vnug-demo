@@ -1,0 +1,12 @@
+{
+  "entities": [
+    "vnug_request"
+  ],
+  "actions": [
+    "vnug_processrequestapproval"
+  ],
+  "functions": [],
+  "output": {
+    "outputRoot": "./src/dataverse-gen"
+  }
+}

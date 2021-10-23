@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/VNUGSolution/.vs/VNUGSolution
+/VNUGSolution/packages
+/VNUGSolution/VNUG.RequestManagement.Webresouces/bin/coretools
+/VNUGSolution/VNUG.RequestManagement.Webresouces/spkl
+/VNUGSolution/VNUG.RequestManagement.Plugins/bin/coretools
+/VNUGSolution/VNUG.RequestManagement.Plugins/obj/Debug
+/VNUGSolution/VNUG.RequestManagement.Plugins/spkl
+/VNUGSolution/VNUG.RequestManagement.Webresouces/node_modules
+/VNUGSolution/VNUG.RequestManagement.Plugins/bin/Debug

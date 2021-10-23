@@ -1,0 +1,10 @@
+{    
+    "plugins": [
+      {
+        "profile": "default,debug",
+        "solution": "RequestManagement",
+        "assemblypath": "bin\\Debug",
+        "classRegex": "((public( sealed)? class (?'class'[\\w]*)[\\W]*?)((?'plugin':[\\W]*?((IPlugin)|(PluginBase)|(Plugin)))|(?'wf':[\\W]*?CodeActivity)))"
+      }
+    ]
+}
