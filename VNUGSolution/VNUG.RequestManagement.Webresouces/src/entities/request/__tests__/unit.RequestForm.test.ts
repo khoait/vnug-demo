@@ -3,7 +3,7 @@ import { vnug_requestAttributes } from "../../../dataverse-gen/entities/vnug_req
 import { RequestForm } from "../RequestForm";
 
 describe("RequestForm", () => {
-  test("show dialog on form load", () => {
+  test("show dialog on form load", async () => {
     // Arrange
     XrmMockGenerator.initialise();
     const context = XrmMockGenerator.getEventContext();
@@ -13,7 +13,7 @@ describe("RequestForm", () => {
 
     Xrm.Navigation.openAlertDialog = jest.fn();
     // Act
-    RequestForm.OnLoad(context);
+    await RequestForm.OnLoad(context);
 
     // Assert
     expect(Xrm.Navigation.openAlertDialog).toBeCalledWith(

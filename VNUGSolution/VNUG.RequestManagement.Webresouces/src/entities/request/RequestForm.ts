@@ -6,7 +6,7 @@ export class RequestForm {
 
     const name = formContext.getAttribute<Xrm.Attributes.StringAttribute>(vnug_requestAttributes.vnug_name)?.getValue();
 
-    Xrm.Navigation.openAlertDialog({
+    await Xrm.Navigation.openAlertDialog({
       text: name ?? "default",
       title: "Onload dialog",
       confirmButtonLabel: "Ok",
