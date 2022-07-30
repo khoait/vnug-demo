@@ -1,8 +1,9 @@
-import { EntityReference, setMetadataCache, XrmContextCdsServiceClient } from "dataverse-ify";
+import { CdsServiceClient, EntityReference, setMetadataCache, XrmContextCdsServiceClient } from "dataverse-ify";
 import {
   vnug_processrequestapprovalMetadata,
   vnug_processrequestapprovalRequest,
 } from "../../dataverse-gen/actions/vnug_processrequestapproval";
+import { vnug_processrequestapprovalResponse } from "../../dataverse-gen/complextypes/vnug_processrequestapprovalResponse";
 import { vnug_request, vnug_requestMetadata } from "../../dataverse-gen/entities/vnug_request";
 import { vnug_request_vnug_request_statuscode } from "../../dataverse-gen/enums/vnug_request_vnug_request_statuscode";
 import { metadataCache } from "../../dataverse-gen/metadata";
@@ -22,9 +23,9 @@ export class RequestRibbon {
       const updateTarget = {
         statuscode: vnug_request_vnug_request_statuscode.Approved,
       } as vnug_request;
-      Xrm.WebApi.updateRecord(vnug_requestMetadata.logicalName, recordid, updateTarget);
+      await Xrm.WebApi.updateRecord(vnug_requestMetadata.logicalName, recordid, updateTarget);
       Xrm.Utility.closeProgressIndicator();
-    } catch (ex) {
+    } catch (ex: any) {
       Xrm.Utility.closeProgressIndicator();
       Xrm.Navigation.openErrorDialog({
         details: ex,
@@ -53,21 +54,24 @@ export class RequestRibbon {
         Operation: "reject",
       } as vnug_processrequestapprovalRequest;
 
-      const service = new XrmContextCdsServiceClient(Xrm.WebApi);
+      const response = await RequestRibbon.CallApprovalAction(new XrmContextCdsServiceClient(Xrm.WebApi), request);
 
-      const response = await service.execute(request);
-
-      const completedOn = response["CompletedOn"] as string;
+      const completedOn = response.CompletedOn;
 
       Xrm.Navigation.openAlertDialog({ text: `Request is rejected on: ${completedOn}` });
 
       Xrm.Utility.closeProgressIndicator();
-    } catch (ex) {
+    } catch (ex: any) {
       Xrm.Utility.closeProgressIndicator();
       Xrm.Navigation.openErrorDialog({
         details: ex,
         message: `Failed to approved the request: ${ex.message}`,
       });
     }
+  }
+
+  static async CallApprovalAction(service: CdsServiceClient, request: vnug_processrequestapprovalRequest) {
+    const response = await service.execute(request);
+    return response as vnug_processrequestapprovalResponse;
   }
 }

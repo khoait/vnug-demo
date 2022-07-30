@@ -127,8 +127,8 @@ export interface vnug_request extends IEntity {
   utcconversiontimezonecode?: number | null;
   // Version Number BigIntType Version Number
   versionnumber?: number | null;
-  // Name StringType
-  vnug_name?: string | null;
+  // Name [Required] StringType
+  vnug_name?: string;
   // Request UniqueidentifierType Unique identifier for entity instances
   vnug_requestid?: import("dataverse-ify").Guid | null;
 }

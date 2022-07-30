@@ -4,12 +4,12 @@ export class RequestForm {
   static async OnLoad(executionContext: Xrm.Events.EventContext) {
     const formContext = executionContext.getFormContext();
 
-    const name = formContext.getAttribute<Xrm.Attributes.StringAttribute>(vnug_requestAttributes.vnug_name);
+    const name = formContext.getAttribute<Xrm.Attributes.StringAttribute>(vnug_requestAttributes.vnug_name)?.getValue();
 
-    Xrm.Navigation.openAlertDialog({
-      text: name?.getValue() ?? "default",
+    await Xrm.Navigation.openAlertDialog({
+      text: name ?? "default",
       title: "Onload dialog",
-      confirmButtonLabel: "Ok watch 444",
+      confirmButtonLabel: "Ok",
     });
   }
 }
