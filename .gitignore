@@ -3,7 +3,7 @@
 ################################################################################
 
 /.vs
-/VNUGSolution/.vs/VNUGSolution
+/VNUGSolution/.vs
 /VNUGSolution/packages
 /VNUGSolution/VNUG.RequestManagement.Webresouces/bin/coretools
 /VNUGSolution/VNUG.RequestManagement.Webresouces/spkl

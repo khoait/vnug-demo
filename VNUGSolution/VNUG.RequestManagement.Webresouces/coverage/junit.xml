@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="2" failures="0" errors="0" time="14.219">
+  <testsuite name="RequestRibbon" errors="0" failures="0" skipped="1" timestamp="2022-07-30T10:01:38" time="14.019" tests="2">
+    <testcase classname="RequestRibbon Approve button return when cancel confirm dialog" name="RequestRibbon Approve button return when cancel confirm dialog" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="RequestRibbon Approve button approve request when confirmed" name="RequestRibbon Approve button approve request when confirmed" time="9.921">
+    </testcase>
+  </testsuite>
+</testsuites>

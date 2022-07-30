@@ -3,6 +3,7 @@ import {
   vnug_processrequestapprovalMetadata,
   vnug_processrequestapprovalRequest,
 } from "../../dataverse-gen/actions/vnug_processrequestapproval";
+import { vnug_processrequestapprovalResponse } from "../../dataverse-gen/complextypes/vnug_processrequestapprovalResponse";
 import { vnug_request, vnug_requestMetadata } from "../../dataverse-gen/entities/vnug_request";
 import { vnug_request_vnug_request_statuscode } from "../../dataverse-gen/enums/vnug_request_vnug_request_statuscode";
 import { metadataCache } from "../../dataverse-gen/metadata";
@@ -24,7 +25,7 @@ export class RequestRibbon {
       } as vnug_request;
       Xrm.WebApi.updateRecord(vnug_requestMetadata.logicalName, recordid, updateTarget);
       Xrm.Utility.closeProgressIndicator();
-    } catch (ex) {
+    } catch (ex: any) {
       Xrm.Utility.closeProgressIndicator();
       Xrm.Navigation.openErrorDialog({
         details: ex,
@@ -57,12 +58,12 @@ export class RequestRibbon {
 
       const response = await service.execute(request);
 
-      const completedOn = response["CompletedOn"] as string;
+      const completedOn = (response as vnug_processrequestapprovalResponse).CompletedOn;
 
       Xrm.Navigation.openAlertDialog({ text: `Request is rejected on: ${completedOn}` });
 
       Xrm.Utility.closeProgressIndicator();
-    } catch (ex) {
+    } catch (ex: any) {
       Xrm.Utility.closeProgressIndicator();
       Xrm.Navigation.openErrorDialog({
         details: ex,
