@@ -12,7 +12,6 @@ describe("RequestRibbon", () => {
 
     test("return when cancel confirm dialog", async () => {
       // Arrange
-      XrmMockGenerator.initialise();
       Xrm.Navigation.openConfirmDialog = jest
         .fn()
         .mockReturnValue({ confirmed: false } as Xrm.Navigation.ConfirmResult);
